@@ -8,12 +8,9 @@ const app = express();
 // Add a health check
 require('kube-probe')(app);
 
-// Add static resources
-require('./app/resources/static')(app, __dirname);
-
 app.use(bodyParser.json());
 
-const Contact = require('./app/model/Contact.model');
+const Contact = require('./model/Contact.model');
 
 mongoose.Promise = global.Promise;
 const mongoURL = process.env.MONGO_URL || 'mongodb://default:default@contacts/contacts';
@@ -48,7 +45,7 @@ app.delete('/contacts/:id', (req, res) => {
       res.json(res.body);
     })
     .catch(e => {
-      console.error(`Error removing contact with ID ${req.params.id}.`);
+      console.error(`Error removing contact with ID: ${req.params.id}.`);
     });
 });
 
@@ -58,7 +55,7 @@ app.get('/contacts/:id', (req, res) => {
       res.json(contact);
     })
     .catch(e => {
-      console.error(`Error trying to find a contact with ID ${req.params.id}.`);
+      console.error(`Error trying to find a contact with ID: ${req.params.id}.`);
     });
 });
 
@@ -69,7 +66,7 @@ app.put('/contacts/:id', (req, res) => {
   ).then(() => {
     res.json(res.body);
   }).catch(e => {
-    console.error(`Error updating Contact with ID ${req.params.id}.`);
+    console.error(`Error updating Contact with ID: ${req.params.id}.`);
   });
 });
 
