@@ -1,0 +1,54 @@
+{
+  "name": "mean-booster-backend",
+  "version": "0.0.1",
+  "description": "MEAN Booster CRUD API",
+  "author": "Red Hat, Inc.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "ci": "npm run lint && npm test",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "tape test/unit/*.js | tap-spec",
+    "test:preIntegration": "echo # setup mongodb",
+    "test:integration": "npm run test:preIntegration && echo 'test-integration'",
+    "lint": "eslint server.js model test",
+    "openshift": "nodeshift --osc.strictSSL=false",
+    "mongodb": "docker rm mongodb && docker run -p 127.0.0.1:27017:27017 --name mongodb -e MONGODB_USERNAME=default -e MONGODB_PASSWORD=default -e MONGODB_DATABASE=contacts bitnami/mongodb:latest",
+    "localhost": "cross-env MONGO_URL='mongodb://default:default@localhost:27017/contacts' npm start",
+    "start": "cross-env PORT=8080 node server.js"
+  },
+  "files": [
+    "package.json",
+    "README.md",
+    "model",
+    "server.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bucharest-gold/mea5n-booster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bucharest-gold/mea5n-booster/issues"
+  },
+  "homepage": "https://github.com/bucharest-gold/mea5n-booster#readme",
+  "devDependencies": {
+    "cross-env": "^5.1.1",
+    "eslint": "~4.7.0",
+    "eslint-config-semistandard": "~11.0.0",
+    "eslint-config-standard": "~10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "~3.5.0",
+    "eslint-plugin-react": "~7.4.0",
+    "eslint-plugin-standard": "~3.0.1",
+    "nodeshift": "^0.9.0",
+    "standard-version": "^4.2.0",
+    "tap-spec": "~4.1.1",
+    "tape": "~4.8.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "kube-probe": "^0.1.2",
+    "mongoose": "^4.12.1"
+  }
+}
