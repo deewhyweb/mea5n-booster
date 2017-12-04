@@ -19,21 +19,21 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.contacts.push({name: 'foo', email: 'bar', number: '123'});
+    
   }
 
   add() {
-    this.contacts.push()
+    this.contacts.push({name: this.contact.name, 
+      email: this.contact.email, 
+      number: this.contact.number});
   }
 
   update() {
 
   }
 
-  cleanup() {
-    this.contact.name = '';
-    this.contact.email = '';
-    this.contact.number = '';
+  remove(id) {
+    console.log('removed', id);
   }
 
 }
