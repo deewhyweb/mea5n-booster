@@ -1,7 +1,7 @@
 {
   "name": "mean-booster-backend",
   "version": "0.0.1",
-  "description": "MEAN Booster CRUD API",
+  "description": "MEAN Booster back-end",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
