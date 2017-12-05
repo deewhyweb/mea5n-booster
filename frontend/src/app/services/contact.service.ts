@@ -11,6 +11,6 @@ export class ContactService {
   public contactBS = new BehaviorSubject<string>(null);
 
   getContacts() {
-    return this.http.get('http://localhost:3000/contacts').map(res => res.json());
+    return this.http.get('http://localhost:8080/contacts').map(res => res.json());
   }
 }

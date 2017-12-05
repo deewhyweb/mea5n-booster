@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
+import { ContactService } from './services/contact.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,12 +16,15 @@ export class AppComponent implements OnInit {
     number: ''
   }
 
-  contacts = [];
+  contacts: any;
 
-  constructor() { }
+  constructor(public contactService: ContactService) { }
 
   ngOnInit() {
-    
+    this.contactService.getContacts().subscribe(result => {
+      this.contactService.contactBS.next(result);
+      this.contacts = this.contactService.contactBS;
+    });
   }
 
   add() {

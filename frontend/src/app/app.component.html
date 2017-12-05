@@ -30,7 +30,7 @@
             <td><button type="button" class="btn btn-default btn-block" (click)="add()">Add contact</button></td>
             <td><button type="button" class="btn btn-info btn-block" (click)="update()">Update</button></td>
           </tr>
-          <tr *ngFor="let c of contacts">
+          <tr *ngFor="let c of contacts?.value">
             <td>{{c.name}}</td>
             <td>{{c.email}}</td>
             <td>{{c.number}}</td>
