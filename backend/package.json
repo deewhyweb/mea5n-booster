@@ -12,7 +12,7 @@
     "test:integration": "npm run test:preIntegration && echo 'test-integration'",
     "lint": "eslint server.js model test",
     "openshift": "nodeshift --osc.strictSSL=false",
-    "mongodb": "docker rm mongodb && docker run -p 127.0.0.1:27017:27017 --name mongodb -e MONGODB_USERNAME=default -e MONGODB_PASSWORD=default -e MONGODB_DATABASE=contacts bitnami/mongodb:latest",
+    "mongodb": "docker rm mongodb && docker run -p 127.0.0.1:27017:27017 --name mongodb -e MONGODB_USER=default -e MONGODB_PASSWORD=default -e MONGODB_DATABASE=contacts -e MONGODB_ADMIN_PASSWORD=admin centos/mongodb-32-centos7",
     "localhost": "cross-env MONGO_URL='mongodb://default:default@localhost:27017/contacts' npm start",
     "start": "cross-env PORT=8080 node server.js"
   },
