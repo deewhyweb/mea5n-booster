@@ -51,6 +51,7 @@ app.post('/contacts', (req, res) => {
 app.delete('/contacts/:id', (req, res) => {
   Contact.findOneAndRemove({_id: req.params.id})
     .then(() => {
+      res.body = {success: true};
       res.json(res.body);
     })
     .catch(e => {

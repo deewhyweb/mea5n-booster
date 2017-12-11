@@ -37,7 +37,9 @@ export class AppComponent implements OnInit {
   }
 
   remove(id) {
-    console.log('removed', id);
+    this.contactService.remove(id).subscribe(res => {
+      this.ngOnInit();
+    });
   }
 
 }
