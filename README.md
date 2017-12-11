@@ -7,7 +7,8 @@ MEAN App using Angular 5x
 1. Open a terminal and run
 
 ```
-docker rm mongodb ; docker run -p 127.0.0.1:27017:27017 --name mongodb -e MONGODB_USER=default -e MONGODB_PASSWORD=default -e MONGODB_DATABASE=contacts -e MONGODB_ADMIN_PASSWORD=admin centos/mongodb-32-centos7
+cd mea5n-booster/backend
+npm run mongodb
 ```
 
 > Note: If you already have a mongodb service running you will see error:
