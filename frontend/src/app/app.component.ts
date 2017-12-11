@@ -32,6 +32,14 @@ export class AppComponent implements OnInit {
     });
   }
 
+  edit(id) {
+    this.contactService.edit(id).subscribe(res => {
+      this.name = res.name;
+      this.email = res.email;
+      this.number = res.number;
+    });
+  }
+  
   update() {
 
   }

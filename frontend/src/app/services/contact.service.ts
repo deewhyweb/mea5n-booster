@@ -18,6 +18,10 @@ export class ContactService {
     return this.http.post('http://localhost:8080/contacts', contact).map(res => res.json());
   }
 
+  edit(id) {
+    return this.http.get(`http://localhost:8080/contacts/${id}`).map(res => res.json());
+  }
+
   remove(id) {
     return this.http.delete(`http://localhost:8080/contacts/${id}`).map(res => res.json());
   }
