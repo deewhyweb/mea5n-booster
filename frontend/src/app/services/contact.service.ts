@@ -13,4 +13,8 @@ export class ContactService {
   getContacts() {
     return this.http.get('http://localhost:8080/contacts').map(res => res.json());
   }
+
+  add(contact) {
+    return this.http.post('http://localhost:8080/contacts', contact).map(res => res.json());
+  }
 }

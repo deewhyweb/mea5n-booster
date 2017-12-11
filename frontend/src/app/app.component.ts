@@ -10,12 +10,10 @@ import { ContactService } from './services/contact.service';
 })
 export class AppComponent implements OnInit {
 
-  contact = {
-    name: '',
-    email: '',
-    number: ''
-  }
-
+  public name: string;
+  public email: string;
+  public number: string;
+  
   contacts: any;
 
   constructor(public contactService: ContactService) { }
@@ -27,10 +25,11 @@ export class AppComponent implements OnInit {
     });
   }
 
-  add() {
-    this.contacts.push({name: this.contact.name, 
-      email: this.contact.email, 
-      number: this.contact.number});
+  add({form, value}) {
+    form.reset();
+    this.contactService.add(value).subscribe(res => {
+      this.ngOnInit();
+    });
   }
 
   update() {

@@ -12,7 +12,8 @@
       <div class="panel-title">Contacts</div>
     </div>
     <div class="panel-body">
-      <table class="table table-striped table-bordered">
+      <form novalidate #contactForm="ngForm">
+       <table class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>Name</th>
@@ -24,10 +25,10 @@
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" class="form-control" [(ngModel)]="contact.name"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="contact.email"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="contact.number"></td>
-            <td><button type="button" class="btn btn-default btn-block" (click)="add()">Add contact</button></td>
+            <td><input type="text" class="form-control" [(ngModel)]="name" name="name"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="email" name="email"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="number" name="number"></td>
+            <td><button type="button" class="btn btn-default btn-block" (click)="add(contactForm)">Add contact</button></td>
             <td><button type="button" class="btn btn-info btn-block" (click)="update()">Update</button></td>
           </tr>
           <tr *ngFor="let c of contacts?.value">
@@ -39,6 +40,7 @@
           </tr>
         </tbody>
       </table>
+    </form>
     </div>
   </div>
 </div>

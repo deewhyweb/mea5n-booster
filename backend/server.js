@@ -40,6 +40,7 @@ app.post('/contacts', (req, res) => {
   contact.number = req.body.number;
   contact.save()
     .then(() => {
+      res.body = {success: true};
       res.json(res.body);
     })
     .catch(e => {
