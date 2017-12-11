@@ -74,6 +74,7 @@ app.put('/contacts/:id', (req, res) => {
     {_id: req.params.id},
     {$set: {name: req.body.name, email: req.body.email, number: req.body.number}}
   ).then(() => {
+    res.body = {success: true};
     res.json(res.body);
   }).catch(e => {
     console.error(`Error updating Contact with ID: ${req.params.id}.`);

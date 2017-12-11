@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   public name: string;
   public email: string;
   public number: string;
-  
+  public id: string;
+
   contacts: any;
 
   constructor(public contactService: ContactService) { }
@@ -37,11 +38,15 @@ export class AppComponent implements OnInit {
       this.name = res.name;
       this.email = res.email;
       this.number = res.number;
+      this.id = res._id;
     });
   }
   
-  update() {
-
+  update({form, value}) {
+    form.reset();
+    this.contactService.update(value, this.id).subscribe(res => {
+      this.ngOnInit();
+    });
   }
 
   remove(id) {

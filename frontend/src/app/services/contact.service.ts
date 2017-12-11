@@ -22,6 +22,10 @@ export class ContactService {
     return this.http.get(`http://localhost:8080/contacts/${id}`).map(res => res.json());
   }
 
+  update(contact, id) {
+    return this.http.put(`http://localhost:8080/contacts/${id}`, contact).map(res => res.json());
+  }
+
   remove(id) {
     return this.http.delete(`http://localhost:8080/contacts/${id}`).map(res => res.json());
   }

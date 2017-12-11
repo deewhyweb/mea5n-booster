@@ -29,7 +29,7 @@
             <td><input type="text" class="form-control" [(ngModel)]="email" name="email"></td>
             <td><input type="text" class="form-control" [(ngModel)]="number" name="number"></td>
             <td><button type="button" class="btn btn-default btn-block" (click)="add(contactForm)">Add contact</button></td>
-            <td><button type="button" class="btn btn-info btn-block" (click)="update()">Update</button></td>
+            <td><button type="button" class="btn btn-info btn-block" (click)="update(contactForm)">Update</button></td>
           </tr>
           <tr *ngFor="let c of contacts?.value">
             <td>{{c.name}}</td>
