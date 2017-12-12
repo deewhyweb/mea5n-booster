@@ -14,6 +14,6 @@ before_script:
   - cd backend ; npm install
   - cd ../frontend ; npm install
 script:
-  - cd frontend ; ng e2e
+  - ng e2e
 notifications:
   irc: "chat.freenode.net#bucharest-gold"
