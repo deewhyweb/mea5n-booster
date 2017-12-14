@@ -118,4 +118,18 @@ npm install kube-probe -S
 require('kube-probe')(app);
 ```
 
-6. Run `npm run openshift`
+6. For the time being it is necessary to use the [`oc`](https://github.com/openshift/origin/releases)
+command line tool to install the `mongodb` instance.
+
+```sh
+$ minishift start
+# make coffee while it starts up
+$ oc new-app https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mongodb-ephemeral-template.json -p DATABASE_SERVICE_NAME=contacts -p MONGODB_USER=default -p MONGODB_PASSWORD=default -p MONGODB_DATABASE=contacts
+```
+
+Once your mongodb pod is running, you can deploy the application.
+
+```
+$ npm install
+$ npm run openshift
+```
