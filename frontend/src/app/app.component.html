@@ -19,15 +19,14 @@
             <th>Name</th>
             <th>Email</th>
             <th>Number</th>
-            <th>Actions</th>
-            <th>&nbsp;</th>
+            <th colspan="2">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" class="form-control" [(ngModel)]="name" name="name"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="email" name="email"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="number" name="number"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="name" name="name" #cname="ngModel" required></td>
+            <td><input type="text" class="form-control" [(ngModel)]="email" name="email" #cemail="ngModel" required></td>
+            <td><input type="text" class="form-control" [(ngModel)]="number" name="number" #cnumber="ngModel" required></td>
             <td><button type="button" class="btn btn-default btn-block" (click)="add(contactForm)">Add contact</button></td>
             <td><button type="button" class="btn btn-info btn-block" (click)="update(contactForm)">Update</button></td>
           </tr>
@@ -40,6 +39,18 @@
           </tr>
         </tbody>
       </table>
+      <div class="alert alert-danger" *ngIf="cname.errors?.required && cname.touched">
+        <span class="pficon pficon-error-circle-o"></span>
+        <strong>Name is required</strong>.
+      </div>
+      <div class="alert alert-danger" *ngIf="cemail.errors?.required && cemail.touched">
+        <span class="pficon pficon-error-circle-o"></span>
+        <strong>Email is required</strong>.
+      </div>
+      <div class="alert alert-danger" *ngIf="cnumber.errors?.required && cnumber.touched">
+        <span class="pficon pficon-error-circle-o"></span>
+        <strong>Number is required</strong>.
+      </div>
     </form>
     </div>
   </div>
