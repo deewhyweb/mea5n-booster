@@ -1,4 +1,7 @@
 /backend/node_modules
 /backend/npm-debug.log
+/backend/tmp
 /frontend/node_modules
 /frontend/npm-debug.log
+/frontend/tmp
+/frontend/dist
